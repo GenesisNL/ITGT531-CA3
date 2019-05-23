@@ -11,6 +11,7 @@ class SpaceStation final : public std::enable_shared_from_this <SpaceStation>
 {
 public:
 	SpaceStation(); 
+	SpaceStation(float pos_x, float pos_y, float pos_z);
 	SpaceStation(const std::shared_ptr<SpaceStation> t_station );
 	virtual ~SpaceStation();
 
@@ -20,6 +21,8 @@ public:
 	void printStatus() const;
 	std::weak_ptr<Robot> getRobot() const;
 	std::vector<std::shared_ptr<Robot>> getAllRobot() const;
+	std::shared_ptr<SpaceStation> operator = (const std::shared_ptr<SpaceStation> t_station);
+
 
 private:
 	float m_x;

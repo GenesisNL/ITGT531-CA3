@@ -8,6 +8,14 @@ SpaceStation::SpaceStation() :
 {
 }
 
+SpaceStation::SpaceStation(float pos_x, float pos_y, float pos_z) :
+
+	m_x(pos_x), m_y(pos_y), m_z(pos_z)
+{
+
+
+}
+
 SpaceStation::SpaceStation(const std::shared_ptr<SpaceStation> t_station) :
 
 	m_x(t_station->m_x), m_y(t_station->m_y), m_z(t_station->m_z),m_robot(t_station->m_robot)
@@ -65,5 +73,17 @@ std::vector<std::shared_ptr<Robot>> SpaceStation::getAllRobot() const
 	return m_robot;
 
 
+
+}
+
+
+std::shared_ptr<SpaceStation>SpaceStation::operator = (const std::shared_ptr<SpaceStation> t_station) 
+{
+	m_x = t_station->m_x;
+	m_y = t_station->m_y;
+	m_z = t_station->m_z;
+	m_robot = t_station->m_robot;
+
+	return shared_from_this();
 
 }
